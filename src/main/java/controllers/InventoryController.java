@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import project.Main;
 import project.grocery;
 import javafx.collections.FXCollections;
@@ -45,7 +47,7 @@ public class InventoryController extends mysqlConnector implements Initializable
 
         private ObservableList<grocery> data = FXCollections.observableArrayList();
         private String[] keys = new String[]{"id", "item","category", "expiry date", "qty", "comment"};
-        private String serverName = "InventoryController";
+        private String serverName = "inventory";
 
         public InventoryController(){
                 JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(serverName));
@@ -70,10 +72,10 @@ public class InventoryController extends mysqlConnector implements Initializable
         }
 
         public void filter(){
-                //intital filter daa
                 FilteredList<grocery> filteredData = new FilteredList<>(data, b -> true);
                 keyword.textProperty().addListener((observable,oldValue,newValue)->{
-                        filteredData.setPredicate(grocery -> {//if no search value then display all records
+                        filteredData.setPredicate(grocery -> {
+                                //if no search value then display all records
                                 if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
                                         return true;
                                 }
@@ -85,12 +87,12 @@ public class InventoryController extends mysqlConnector implements Initializable
                                         return true;}//means we found a match in item name//
                                 else if(grocery.getCategory_col().toLowerCase().indexOf(searchKeyword) > -1){
                                         return true;}//means we found a match in category
-                                else if(grocery.getExpiryDate_col().toLowerCase().indexOf(searchKeyword) > -1){
-                                        return true;}//means we found a match in expiryDate
                                 else if(grocery.getQty_col().toLowerCase().indexOf(searchKeyword) > -1){
                                         return true;}//means we found a match in qty
-                                else if(grocery.getComment_col().toLowerCase().indexOf(searchKeyword) > -1){
-                                        return true;}//means we found a match in comment
+                                /* else if(grocery.getExpiryDate_col().toLowerCase().indexOf(searchKeyword) > -1){
+                                        return true;}//means we found a match in expiryDate */
+                                /* else if(grocery.getComment_col().toLowerCase().indexOf(searchKeyword) > -1){
+                                        return true;}//means we found a match in comment */
                                 else
                                         return false;//no match found
                         });
@@ -137,6 +139,9 @@ public class InventoryController extends mysqlConnector implements Initializable
                 this.comment.setCellValueFactory(new PropertyValueFactory<>("comment_col"));
 
                 inventoryTable.setItems(data);
+                /* initial filter list */
+                filter();
+
 
         }
 }

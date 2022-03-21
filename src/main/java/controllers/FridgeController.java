@@ -72,7 +72,7 @@ public class FridgeController extends mysqlConnector implements Initializable {
                 for (int i = 0; i < array.length(); i++)
                 {
                         JSONObject curObject = array.getJSONObject(i);
-                        sensorVal =new String[]{curObject.getString(keyValue),curObject.getString(minorNotes)};
+                        sensorVal =new String[]{String.valueOf(Math.round(curObject.getDouble(keyValue))),curObject.getString(minorNotes)};
                 }
                 return sensorVal;
         }
@@ -85,7 +85,7 @@ public class FridgeController extends mysqlConnector implements Initializable {
                 Label[] labels = {lightVal,tempVal,humVal,weightVal};
                 for (int i = 0; i<labels.length; i++){
                         String response = makeGETRequest("readSensorValue",sensorName[i]);
-                        labels[i].setText(readSensorValue(response)[0]+"\t"+readSensorValue(response)[1]);
+                        labels[i].setText(readSensorValue(response)[0]+" "+readSensorValue(response)[1]);
                 }
         }
         public void setSensorSignal() {
@@ -98,7 +98,7 @@ public class FridgeController extends mysqlConnector implements Initializable {
         }
         public void toInventory(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("InventoryScene.fxml");
+                m.changeScene("InventoryScene2.fxml");
         }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {

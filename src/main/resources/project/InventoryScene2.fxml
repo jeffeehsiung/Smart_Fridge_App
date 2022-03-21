@@ -16,18 +16,18 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff8e4#fff8e4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InventoryController">
    <children>
-      <TabPane fx:id="InventoryController" layoutX="-2.0" layoutY="36.0" prefHeight="320.0" prefWidth="600.0" side="BOTTOM" style="-fx-background-color: #fff8e4;" tabMaxHeight="20.0" tabMaxWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
+      <TabPane fx:id="InventoryController" layoutX="-2.0" layoutY="36.0" prefHeight="320.0" prefWidth="600.0" side="BOTTOM" stylesheets="@styling.css" tabMaxHeight="20.0" tabMaxWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
         <tabs>
-          <Tab id="material" style="-fx-background-color: #ffffff;" text="material">
+          <Tab id="material" text="material">
                <content>
-                  <TableView fx:id="inventoryTable" cache="true" depthTest="DISABLE" prefHeight="256.0" prefWidth="600.0" style="-fx-background-color: #fff8e4#fff8e4; -fx-border-color: #ddd;">
+                  <TableView fx:id="inventoryTable" cache="true" depthTest="DISABLE" prefHeight="256.0" prefWidth="600.0">
                     <columns>
-                      <TableColumn id="id_col" fx:id="id" prefWidth="50.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="id" />
-                      <TableColumn id="item_col" fx:id="item" prefWidth="150.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="item" />
-                        <TableColumn id="category_col" fx:id="category" prefWidth="100.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="category" />
-                        <TableColumn id="expiry date_col" fx:id="expiryDate" prefWidth="100.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="expiry date" />
-                        <TableColumn id="qty_col" fx:id="qty" prefWidth="50.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="qty" />
-                        <TableColumn id="comment_col" fx:id="comment" prefWidth="150.0" style="-fx-background-color: #2596be; -fx-border-color: white; -fx-text-fill: #ffff80;" text="comment" />
+                      <TableColumn id="id_col" fx:id="id" prefWidth="50.0" text="id" />
+                      <TableColumn id="item_col" fx:id="item" prefWidth="150.0" text="item" />
+                        <TableColumn id="category_col" fx:id="category" prefWidth="100.0" text="category" />
+                        <TableColumn id="expiry date_col" fx:id="expiryDate" prefWidth="100.0" text="expiry date" />
+                        <TableColumn id="qty_col" fx:id="qty" prefWidth="50.0" text="qty" />
+                        <TableColumn id="comment_col" fx:id="comment" prefWidth="150.0" text="comment" />
                     </columns>
                      <opaqueInsets>
                         <Insets />

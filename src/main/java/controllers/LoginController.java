@@ -38,15 +38,17 @@ public class LoginController extends mysqlConnector implements Initializable {
     private boolean userExist = false;
     private boolean pwdCorrect = false;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){}
+
     @FXML
     void userLogin(ActionEvent event) throws IOException, InterruptedException {
         checkLogin();
     }
     @FXML
     void goRegister(ActionEvent e) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("RegisterScene.fxml"));
-        Stage window = (Stage) buttLogin.getScene().getWindow();
-        window.setScene(new Scene(root, 600, 400));
+        Main m = new Main();
+        m.changeScene("RegisterScene.fxml");
     }
 
     /* data base connection and comparison */
@@ -87,7 +89,4 @@ public class LoginController extends mysqlConnector implements Initializable {
             lblWrongLogin.setText("No user found");
         }
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){}
 }

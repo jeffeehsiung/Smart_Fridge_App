@@ -16,7 +16,7 @@
             <Image url="@background/Background_Register.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblTitel" layoutX="378.0" layoutY="58.0" text="Register" textFill="WHITE">
+      <Label fx:id="lblTitle" layoutX="378.0" layoutY="58.0" text="Register" textFill="WHITE">
          <font>
             <Font name="Leelawadee UI Bold" size="41.0" />
          </font>
@@ -53,7 +53,7 @@
             <Image url="@icons/iconregister_2.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblSucces" layoutX="370.0" layoutY="117.0" prefHeight="31.0" prefWidth="173.0" textAlignment="CENTER" textFill="BLUE">
+      <Label fx:id="lblSuccess" layoutX="370.0" layoutY="117.0" prefHeight="31.0" prefWidth="173.0" textAlignment="CENTER" textFill="BLUE">
          <font>
             <Font name="Leelawadee UI" size="12.0" />
          </font>
