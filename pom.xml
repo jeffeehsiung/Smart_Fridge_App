@@ -5,15 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <<<<<<< HEAD
-    <artifactId>fridge</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>fridge</name>
-=======
     <artifactId>Project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Project</name>
->>>>>>> ffd93b0 (jorie project)
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,20 +18,11 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-<<<<<<< HEAD
-            <version>17.0.0.1</version>
-=======
             <version>17-ea+11</version>
->>>>>>> ffd93b0 (jorie project)
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-<<<<<<< HEAD
-            <version>17.0.0.1</version>
-        </dependency>
-
-=======
             <version>17-ea+11</version>
         </dependency>
         <dependency>
@@ -93,7 +78,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
->>>>>>> ffd93b0 (jorie project)
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -105,6 +89,16 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>17.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>17.0.2</version>
         </dependency>
     </dependencies>
 
@@ -122,21 +116,13 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-<<<<<<< HEAD
-                <version>0.0.7</version>
-=======
                 <version>0.0.6</version>
->>>>>>> ffd93b0 (jorie project)
                 <executions>
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-<<<<<<< HEAD
-                            <mainClass>com.example.fridge/com.example.fridge.HelloApplication</mainClass>
-=======
                             <mainClass>com.example.project/com.example.project.Main</mainClass>
->>>>>>> ffd93b0 (jorie project)
                         </configuration>
                     </execution>
                 </executions>

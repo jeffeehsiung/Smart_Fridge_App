@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fridgeInfo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FridgeController">
    <children>
       <BorderPane layoutY="-5.0" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF;">
          <top>
