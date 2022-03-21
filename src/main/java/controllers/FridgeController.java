@@ -59,8 +59,6 @@ public class FridgeController extends mysqlConnector implements Initializable {
         private Label weightVal;
         @FXML
         private Label weightSignal;
-        @FXML
-        void showSensorValue(ActionEvent event) {setSensorVal();setSensorSignal();}
 
         private String[] sensorName = {"Light","Temp","Humid","Weight"};
 
@@ -96,9 +94,24 @@ public class FridgeController extends mysqlConnector implements Initializable {
                 }
                 else{messages[i].setText("\t");}
         }
-        public void toInventory(ActionEvent event) throws IOException {
+        @FXML
+        void showSensorValue(ActionEvent event) {setSensorVal();setSensorSignal();}
+
+        @FXML
+        void toInventory(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("InventoryScene2.fxml");
+                m.changeScene("InventoryScene.fxml");
+        }
+        @FXML
+        void toRecipe(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("RecipeScene.fxml");
+        }
+
+        @FXML
+        void toShoppingList(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("ShoppingScene.fxml");
         }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {

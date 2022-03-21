@@ -24,7 +24,7 @@
                <children>
                   <Label graphicTextGap="10.0" prefHeight="24.0" prefWidth="145.0" text="Your Fridge">
                      <font>
-                        <Font name="Chalkduster" size="18.0" />
+                        <Font name="Leelawadee UI Bold" size="24.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -56,17 +56,17 @@
                               </ImageView>
                               <Label fx:id="ldr" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" text="light" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI Bold" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="lightVal" alignment="CENTER" contentDisplay="CENTER" layoutY="145.0" text="value" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="lightSignal" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" text="message" textAlignment="CENTER" textFill="#a4a1a1" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -85,19 +85,19 @@
                                     <Image url="@icons/temperature-sensor.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="temp" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" text="temperature" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+                              <Label fx:id="temp" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" prefHeight="15.0" prefWidth="73.0" text="temperature" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI Bold" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="tempVal" alignment="CENTER" contentDisplay="CENTER" layoutY="145.0" text="value" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="tempSignal" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" text="message" textFill="#8a8383" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                              <Label fx:id="tempSignal" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" text="message" textFill="#a4a1a1" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -111,24 +111,24 @@
                      <children>
                         <AnchorPane prefHeight="210.0" prefWidth="150.0">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="30.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="18.5" AnchorPane.rightAnchor="18.5" AnchorPane.topAnchor="30.0">
+                              <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="18.5" layoutY="31.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="18.5" AnchorPane.rightAnchor="18.5" AnchorPane.topAnchor="30.0">
                                  <image>
                                     <Image url="@icons/humidity copy.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="hum" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" text="humidity" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI Bold" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="humVal" alignment="CENTER" contentDisplay="CENTER" layoutY="145.0" text="value" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="humSignal" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" text="message" textAlignment="CENTER" textFill="#a4a1a1" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -149,17 +149,17 @@
                               </ImageView>
                               <Label fx:id="weight" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" text="weight" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI Bold" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="weightVal" alignment="CENTER" contentDisplay="CENTER" layoutY="145.0" text="value" textAlignment="CENTER" textFill="#8a8383" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                               <Label fx:id="weightSignal" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" text="message" textAlignment="CENTER" textFill="#a4a1a1" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                                  <font>
-                                    <Font size="12.0" />
+                                    <Font name="Segoe UI" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -210,21 +210,21 @@
             </Button>
          </right>
          <bottom>
-            <ButtonBar prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" BorderPane.alignment="CENTER_LEFT">
+            <ButtonBar prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" BorderPane.alignment="CENTER">
                <buttons>
                   <Button fx:id="fridgeBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSensorValue" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="Chalkduster" size="12.0" />
+                        <Font name="System Font" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="75.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/fridge.png" />
+                              <Image url="@icons/butFridge.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="recipeBut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
+                  <Button fx:id="recipeBut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toRecipe" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
                      <graphic>
                         <ImageView fx:id="imageMeal" fitHeight="75.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -261,7 +261,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="shopListBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="shopListBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toShoppingList" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
                      <graphic>
                         <ImageView fx:id="imageList" fitHeight="79.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -271,9 +271,9 @@
                      </graphic>
                   </Button>
                </buttons>
-               <padding>
-                  <Insets right="80.0" />
-               </padding>
+               <BorderPane.margin>
+                  <Insets left="95.0" right="95.0" />
+               </BorderPane.margin>
             </ButtonBar>
          </bottom>
       </BorderPane>

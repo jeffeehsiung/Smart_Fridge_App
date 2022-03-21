@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
+import project.Main;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,31 +48,7 @@ public class RecipeController implements Initializable  {
     @FXML private Rating rateD3;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        File background_f = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\background_recipe.jpg");
-        File dish1_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\dish1.jpg");
-        File dish2_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\dish2.jpg");
-        File dish3_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\dish3.jpg");
-        File butMeal_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\butMeal.png");
-        File butInv_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\butInv.png");
-        File butList_f  = new File("C:\\Users\\aerts\\Desktop\\Project\\src\\main\\resources\\Images\\butList.png");
-
-        Image background_im = new Image(background_f.toURI().toString());
-        Image dish1_im= new Image(dish1_f.toURI().toString());
-        Image dish2_im = new Image(dish2_f.toURI().toString());
-        Image dish3_im= new Image(dish3_f.toURI().toString());
-        Image butMeal_im = new Image(butMeal_f.toURI().toString());
-        Image butInv_im= new Image(butInv_f.toURI().toString());
-        Image butList_im = new Image(butList_f.toURI().toString());
-        background_recipe.setImage(background_im);
-        imageD1.setImage(dish1_im);
-        imageD2.setImage(dish2_im);
-        imageD3.setImage(dish3_im);
-        imageMeal.setImage(butMeal_im);
-        imageInv.setImage(butInv_im);
-        imageList.setImage(butList_im);
-
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle){}
 
     @FXML void goDish1(ActionEvent event) {
         System.out.println("D1");
@@ -98,8 +75,7 @@ public class RecipeController implements Initializable  {
     }
 
     @FXML void goMenuList(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ShoppingScene.fxml"));
-        Stage window = (Stage) buttMeal.getScene().getWindow();
-        window.setScene(new Scene(root, 600, 400));
+        Main m = new Main();
+        m.changeScene("ShoppingScene.fxml");
     }
 }

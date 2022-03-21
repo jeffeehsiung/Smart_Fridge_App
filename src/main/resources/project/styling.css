@@ -38,7 +38,7 @@
     -fx-text-fill: #2596be;
     -fx-border-color: white;
     -fx-border-width: 0px 0px 0px 0px;
-    -fx-border-radius: 1em;
+    -fx-border-radius: 3em;
     -fx-font-weight: bold;
 }
 
@@ -81,11 +81,10 @@
     -fx-border-width: 0.3;
 }
 .table-row-cell:selected{
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(234, 217, 240, 0.3);
     -fx-text-fill: #2596be;
 }
 .table-row-cell:selected .text{
-    -fx-fill: white;
     -fx-text-fill: #2596be;
     -fx-font-family: Leelawadee UI, Segoe UI;
 }

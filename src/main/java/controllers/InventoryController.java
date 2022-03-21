@@ -125,9 +125,30 @@ public class InventoryController extends mysqlConnector implements Initializable
                 JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(urlExtention));
 
         }
-        public void toFridge(ActionEvent event) throws IOException {
+        @FXML
+        void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
                 m.changeScene("FridgeScene.fxml");
+        }
+
+        @FXML
+        void toInventory(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("InventoryScene.fxml");
+        }
+
+        @FXML
+        void toRecipe(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("RecipeScene.fxml");
+
+        }
+
+        @FXML
+        void toShoppingList(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("ShoppingScene.fxml");
+
         }
 
         public void initialize(URL url, ResourceBundle resourceBundle) {

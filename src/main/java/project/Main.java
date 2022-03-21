@@ -20,7 +20,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
-        stage.setTitle("JJKL");
+        stage.setTitle("Smart Fridge");
         stage.setScene(scene);
         stage.show();
 
