@@ -1,6 +1,6 @@
 package controllers;
 
-import com.example.fridge.Product;
+import project.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

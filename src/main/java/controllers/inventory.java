@@ -1,7 +1,7 @@
 package controllers;
 
-import com.example.fridge.Main;
-import com.example.fridge.grocery;
+import project.Main;
+import project.grocery;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;

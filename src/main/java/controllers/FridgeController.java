@@ -1,6 +1,6 @@
 package controllers;
 
-import com.example.fridge.Main;
+import project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

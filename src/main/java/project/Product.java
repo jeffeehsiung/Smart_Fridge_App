@@ -1,4 +1,4 @@
-package com.example.fridge;
+package project;
 
 public class Product {
     public String name;

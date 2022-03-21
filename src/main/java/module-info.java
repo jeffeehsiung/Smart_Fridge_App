@@ -7,8 +7,8 @@ module com.example.fridge {
     requires org.controlsfx.controls;
 
 
-    opens com.example.fridge to javafx.fxml;
-    exports com.example.fridge;
+    opens project to javafx.fxml;
+    exports project;
     exports controllers;
     opens controllers to javafx.fxml;
 }

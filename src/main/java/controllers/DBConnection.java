@@ -7,8 +7,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import com.example.fridge.Product;
-import com.example.fridge.User;
+import project.Product;
+import project.User;
 import org.json.*;
 import java.util.ArrayList;
 import java.util.List;
