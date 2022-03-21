@@ -1,0 +1,1 @@
+SELECT * FROM a21ib2a01.sensors;

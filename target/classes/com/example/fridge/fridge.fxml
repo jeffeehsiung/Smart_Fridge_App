@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fridgeInfo">
+   <children>
+      <BorderPane layoutY="-5.0" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF;">
+         <top>
+            <HBox prefHeight="48.0" prefWidth="630.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label graphicTextGap="10.0" prefHeight="24.0" prefWidth="145.0" text="Your Fridge">
+                     <font>
+                        <Font name="Chalkduster" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="170.0" prefWidth="150.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <AnchorPane prefHeight="210.0" prefWidth="150.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="30.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                                 <image>
+                                    <Image url="@icons/sensor.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lightVal" layoutX="47.5" layoutY="145.0" text="value" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lightSignal" alignment="CENTER" layoutX="45.0" layoutY="160.0" text="message" textFill="#a4a1a1">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="-6.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="170.0" prefWidth="150.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </opaqueInsets>
+                     <children>
+                        <AnchorPane prefHeight="210.0" prefWidth="150.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="12.0" layoutY="30.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.5" AnchorPane.topAnchor="30.0">
+                                 <image>
+                                    <Image url="@icons/temperature-sensor.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="temp" layoutX="30.0" layoutY="130.0" text="temperature" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tempVal" layoutX="47.5" layoutY="145.0" text="value" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tempSignal" alignment="CENTER" layoutX="45.0" layoutY="160.0" text="message" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="-6.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="170.0" prefWidth="150.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </opaqueInsets>
+                     <children>
+                        <AnchorPane prefHeight="210.0" prefWidth="150.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="30.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="22.0">
+                                 <image>
+                                    <Image url="@icons/humidity%20copy.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="hum" layoutX="38.0" layoutY="130.0" text="humidity" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="humVal" layoutX="47.5" layoutY="145.0" text="value" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="humSignal" alignment="CENTER" layoutX="45.0" layoutY="160.0" text="message" textFill="#a4a1a1">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="-6.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="170.0" prefWidth="150.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </opaqueInsets>
+                     <children>
+                        <AnchorPane prefHeight="210.0" prefWidth="150.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="30.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                                 <image>
+                                    <Image url="@icons/weight.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="weight" layoutX="45.0" layoutY="130.0" text="weight" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="weightVal" layoutX="47.5" layoutY="145.0" text="value" textFill="#8a8383">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="weightSignal" alignment="CENTER" layoutX="45.0" layoutY="160.0" text="message" textFill="#a4a1a1">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="-6.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+         <left>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" minWidth="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="27.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#b0c8e8" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/left-arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets left="5.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="25.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="25.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#b0c8e8" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/right-arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="5.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+         <bottom>
+            <ButtonBar prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" BorderPane.alignment="CENTER_LEFT">
+              <buttons>
+                  <Button fx:id="fridgeBut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSensorValue" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #C0C0C0#C0C0C0 #C0C0C0#C0C0C0;" text="Fridge" textFill="WHITE">
+                     <font>
+                        <Font name="Chalkduster" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/fridge.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="recipeBut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #C0C0C0#C0C0C0 #C0C0C0#C0C0C0;" text="Recipe" textFill="WHITE">
+                     <font>
+                        <Font name="Chalkduster" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/recipe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="inventoryBut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toInventory" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #C0C0C0#C0C0C0 #C0C0C0#C0C0C0;" text="Inventory" textFill="WHITE">
+                     <font>
+                        <Font name="Chalkduster" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/ingredients.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="shopListBut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #C0C0C0#C0C0C0 #C0C0C0#C0C0C0;" text="Shopping List" textFill="WHITE">
+                     <font>
+                        <Font name="Chalkduster" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/shopping-cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </buttons>
+               <padding>
+                  <Insets right="80.0" />
+               </padding>
+            </ButtonBar>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

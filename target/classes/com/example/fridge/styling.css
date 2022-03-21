@@ -1,0 +1,107 @@
+.button
+{
+    -fx-background-color: #C0C0C0;
+}
+
+.button:hover
+{
+    -fx-background-color: #40E0D0;
+}
+
+.button:pressed
+{
+    -fx-background-color: #C0C0C0;
+    -fx-text-fill: pink;
+}
+
+.button:focused
+{
+    -fx-background-color: #40E0D0;
+    -fx-text-fill: pink;
+}
+
+/* tab pane */
+.tab-pane .tab-header-area .tab-header-background{
+    -fx-opacity: 0;
+}
+
+.tab-pane{
+    -fx-tab-min-width:90px;
+    -fx-tab-min-height:30px;
+}
+
+.tab-pane .tab{
+    -fx-background-color:  #fff8e4;
+}
+.tab-pane .tab:selected{
+    -fx-background-color: #2596be;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-radius: 3em;
+    -fx-font-weight: bold;
+}
+
+.tab .tab-label{
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label{
+    -fx-text-fill: #2596be;
+}
+
+
+
+
+/* table view */
+
+/* The column header row is made up of a number of column-header, one for each
+   TableColumn, and a 'filler' area that extends from the right-most column
+   to the edge of the tableview, or up to the 'column control' button. */
+.table-view .column-header,
+.table-view .column-header-background .filler
+{
+    -fx-cell-size: 20;
+    -fx-border-style: null;
+    -fx-border-width: 0 0.5 1 0;
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-font-family: Leelawadee UI, Segoe UI;
+}
+
+.table-cell{
+    -fx-border-color: transparent; /* Vertical Lines*/
+    -fx-border-width: 0.3;
+}
+.table-row-cell:selected{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.table-row-cell:selected .text{
+    -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-font-family: Leelawadee UI, Segoe UI;
+}
+
+.table-view .cell{
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ffff80;
+}
+
+/*table view scroll bar **thumb** css class which we drag everytime (movable)*/
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb{
+    -fx-background-color: derive( #7156DD, 80%);
+    -fx-background-insets: 1,0,0;
+    -fx-background-radius: 1em;
+}
+
+
+
