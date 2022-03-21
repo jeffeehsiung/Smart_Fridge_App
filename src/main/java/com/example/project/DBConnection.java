@@ -22,9 +22,9 @@ public class DBConnection {
     public List<User> dataListU = new ArrayList<>();
     public List<Object> dataListP = new ArrayList<>();
     public String makeGETRequest(String urlName){                       //URL handling, explained in theory video
-        BufferedReader rd = null;
-        StringBuilder sb = null;
-        String line = null;
+        BufferedReader rd;
+        StringBuilder sb;
+        String line;
         try {
             URL url = new URL(urlName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
