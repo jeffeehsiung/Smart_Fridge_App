@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class inventory implements Initializable {
+public class InventoryController extends mysqlConnector implements Initializable {
         @FXML
         private TableView<grocery> inventoryTable;
         @FXML
@@ -43,13 +43,12 @@ public class inventory implements Initializable {
         private TextField keyword;
 
 
-        private mysqlConnector mysqlConnector = new mysqlConnector();
         private ObservableList<grocery> data = FXCollections.observableArrayList();
         private String[] keys = new String[]{"id", "item","category", "expiry date", "qty", "comment"};
-        private String serverName = "inventory";
+        private String serverName = "InventoryController";
 
-        public inventory(){
-                JSONArray dbJSON = mysqlConnector.parseIntoJSONarray(mysqlConnector.makeGETRequest(serverName));
+        public InventoryController(){
+                JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(serverName));
                 //iterate and compare to JSONarray
                 for (int i = 0; i < dbJSON.length(); i++){
                         JSONObject curObject = dbJSON.getJSONObject(i);
@@ -121,12 +120,12 @@ public class inventory implements Initializable {
 
                 //extention url for inserting into shoppingList
                 String urlExtention = serverName + "/" + toShoppingListItem + "/" + toShoppingListItemQty;
-                JSONArray dbJSON = mysqlConnector.parseIntoJSONarray(mysqlConnector.makeGETRequest(urlExtention));
+                JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(urlExtention));
 
         }
         public void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("fridge.fxml");
+                m.changeScene("FridgeScene.fxml");
         }
 
         public void initialize(URL url, ResourceBundle resourceBundle) {

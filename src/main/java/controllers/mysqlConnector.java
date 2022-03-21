@@ -83,7 +83,7 @@ public class mysqlConnector {
 
     public static void main(String[] args) {
         mysqlConnector mysqlConnector = new mysqlConnector();
-        String response = mysqlConnector.makeGETRequest("inventory");
+        String response = mysqlConnector.makeGETRequest("InventoryController");
         System.out.println(mysqlConnector.parseIntoJSONarray(response));
     }
 }

@@ -75,7 +75,7 @@ public class LoginController extends mysqlConnector implements Initializable {
         compareUserDB(txtUsername.getText(),txtPassword.getText(),userDBserver);
         if(loginSucceed){
             lblWrongLogin.setText("Login successful");
-            m.changeScene("fridge.fxml");
+            m.changeScene("FridgeScene.fxml");
         }
         else if(txtUsername.getText().isEmpty() && txtPassword.getText().isEmpty()) {
             lblWrongLogin.setText("Please enter your data.");

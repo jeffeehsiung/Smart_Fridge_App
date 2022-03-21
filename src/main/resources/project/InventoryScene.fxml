@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff8e4#fff8e4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.inventory">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff8e4#fff8e4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InventoryController">
    <children>
-      <TabPane fx:id="inventory" layoutX="-2.0" layoutY="36.0" prefHeight="320.0" prefWidth="600.0" side="BOTTOM" style="-fx-background-color: #fff8e4;" stylesheets="@styling.css" tabMaxHeight="20.0" tabMaxWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
+      <TabPane fx:id="InventoryController" layoutX="-2.0" layoutY="36.0" prefHeight="320.0" prefWidth="600.0" side="BOTTOM" style="-fx-background-color: #fff8e4;" stylesheets="@styling.css" tabMaxHeight="20.0" tabMaxWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
         <tabs>
           <Tab id="material" style="-fx-background-color: #ffffff;" text="material">
                <content>

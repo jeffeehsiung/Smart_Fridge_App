@@ -17,24 +17,24 @@
          <children>
             <ImageView fx:id="background_recipe" fitHeight="400.0" fitWidth="600.0" opacity="0.75" pickOnBounds="true" preserveRatio="true" x="100.0">
                <image>
-                  <Image url="@../../../Images/background_recipe.jpg" />
+                  <Image url="@background/background_recipe.jpg" />
                </image>
             </ImageView>
             <AnchorPane layoutY="310.0" prefHeight="90.0" prefWidth="600.0">
                <children>
                   <ImageView fx:id="imageMeal" fitHeight="79.0" fitWidth="85.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butMeal.png" />
+                        <Image url="@icons/butMeal.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="imageInv" fitHeight="103.0" fitWidth="83.0" layoutX="259.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butInv.png" />
+                        <Image url="@icons/butInv.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="imageList" fitHeight="79.0" fitWidth="100.0" layoutX="454.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butList.png" />
+                        <Image url="@icons/butList.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparant;">
@@ -64,7 +64,7 @@
                   <Rating fx:id="rateD1" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="4.5" />
                   <ImageView fx:id="imageD1" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/dish1.jpg" />
+                        <Image url="@picture/dish1.jpg" />
                      </image>
                   </ImageView>
                   <Label fx:id="lblTitD1" layoutX="10.0" layoutY="90.0" text="Name of dish 1">
@@ -85,7 +85,7 @@
                   <Rating fx:id="rateD2" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="5.0" />
                   <ImageView fx:id="imageD2" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/dish2.jpg" />
+                        <Image url="@picture/dish2.jpg" />
                      </image>
                   </ImageView>
                   <Label fx:id="lblTitD2" layoutX="10.0" layoutY="90.0" text="Name of dish 2">
@@ -106,7 +106,7 @@
                   <Rating fx:id="rateD3" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="4.0" />
                   <ImageView fx:id="imageD3" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../Images/dish3.jpg" />
+                        <Image url="@picture/dish3.jpg" />
                      </image>
                   </ImageView>
                   <Label fx:id="lblTitD3" layoutX="10.0" layoutY="90.0" text="Name of dish 3">

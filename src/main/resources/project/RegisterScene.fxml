@@ -13,7 +13,7 @@
    <children>
       <ImageView fx:id="wallpaper" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../Images/Background_Register.jpg" />
+            <Image url="@background/Background_Register.jpg" />
          </image>
       </ImageView>
       <Label fx:id="lblTitel" layoutX="378.0" layoutY="58.0" text="Register" textFill="WHITE">
@@ -35,12 +35,12 @@
       <Button fx:id="buttRegisterClose" layoutX="367.0" layoutY="348.0" mnemonicParsing="false" onAction="#closeRegister" prefHeight="31.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-background-color: #20B2AA;" text="Close" textFill="WHITE" />
       <ImageView fx:id="ic1" fitHeight="30.0" fitWidth="30.0" layoutX="348.0" layoutY="152.0">
          <image>
-            <Image url="@../../../Images/iconregister_1.jpg" />
+            <Image url="@icons/iconregister_1.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="ic2" fitHeight="30.0" fitWidth="30.0" layoutX="348.0" layoutY="200.0">
          <image>
-            <Image url="@../../../Images/iconregister_2.png" />
+            <Image url="@icons/iconregister_2.png" />
          </image>
       </ImageView>
       <PasswordField fx:id="txtPassword11" layoutX="381.0" layoutY="249.0" promptText="Confirm Password" style="-fx-background-color: #CCCCFF;">
@@ -50,7 +50,7 @@
       </PasswordField>
       <ImageView fx:id="ic3" fitHeight="30.0" fitWidth="30.0" layoutX="348.0" layoutY="249.0">
          <image>
-            <Image url="@../../../Images/iconregister_2.png" />
+            <Image url="@icons/iconregister_2.png" />
          </image>
       </ImageView>
       <Label fx:id="lblSucces" layoutX="370.0" layoutY="117.0" prefHeight="31.0" prefWidth="173.0" textAlignment="CENTER" textFill="BLUE">
