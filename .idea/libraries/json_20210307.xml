@@ -1,7 +1,11 @@
 <component name="libraryTable">
   <library name="json-20210307">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://$PROJECT_DIR$/../../../intellij/library/json-20210307.jar!/" />
+=======
+      <root url="jar://$PROJECT_DIR$/../json-20210307.jar!/" />
+>>>>>>> ffd93b0 (jorie project)
     </CLASSES>
     <JAVADOC />
     <SOURCES />

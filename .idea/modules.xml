@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/fridge.iml" filepath="$PROJECT_DIR$/fridge.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Project.iml" filepath="$PROJECT_DIR$/Project.iml" />
+>>>>>>> ffd93b0 (jorie project)
     </modules>
   </component>
 </project>
