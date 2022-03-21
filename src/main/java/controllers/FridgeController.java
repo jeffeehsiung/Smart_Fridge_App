@@ -77,14 +77,14 @@ public class FridgeController extends mysqlConnector implements Initializable {
                 return sensorVal;
         }
         public double getSensorValue(String sensorName){
-                String response = makeGETRequest("sensorValue",sensorName);
+                String response = makeGETRequest("readSensorValue",sensorName);
                 Double sensorVal = Double.parseDouble(readSensorValue(response)[0]);
                 return sensorVal;
         }
         public void setSensorVal() {
                 Label[] labels = {lightVal,tempVal,humVal,weightVal};
                 for (int i = 0; i<labels.length; i++){
-                        String response = makeGETRequest("sensorValue",sensorName[i]);
+                        String response = makeGETRequest("readSensorValue",sensorName[i]);
                         labels[i].setText(readSensorValue(response)[0]+"\t"+readSensorValue(response)[1]);
                 }
         }
