@@ -1,5 +1,6 @@
-package com.example.project;
+package controllers;
 
+import com.example.fridge.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import java.util.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ShoppingController implements Initializable {
@@ -53,13 +52,13 @@ public class ShoppingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DBConnection db = new DBConnection();
         String urlAPI = "https://studev.groept.be/api/a21ib2a01/readProducts";
-        List<Product> products = db.parseJSONProducts(db.makeGETRequest(urlAPI));
+        List<Object> products = db.parseJSONProducts(db.makeGETRequest(urlAPI));
         ObservableList<Product> OBList = FXCollections.observableArrayList();
-        for (Product product:products) {
+        for (Object product:products) {
             //String nameProd = product.getName();
             //String qtyProd =product.getQty();
             //System.out.print(nameProd +" -- "+ qtyProd+ "\n");
-            OBList.add(product);
+            OBList.add((Product) product);
             System.out.println(OBList);
         }
 

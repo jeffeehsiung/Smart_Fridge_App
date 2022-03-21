@@ -1,16 +1,10 @@
 package com.example.fridge;
 
-import controllers.mysqlConnector;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.fridge;
 
 public class User {
     public String name, pass, notes;

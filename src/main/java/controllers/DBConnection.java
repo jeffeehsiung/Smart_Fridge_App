@@ -1,4 +1,4 @@
-package com.example.project;
+package controllers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,6 +6,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+
+import com.example.fridge.Product;
+import com.example.fridge.User;
 import org.json.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +70,7 @@ public class DBConnection {
         }
         return dataListP;
     }
-    public List<Object> parseJSONUsers(String jsonString){
+    public List<User> parseJSONUsers(String jsonString){
         try {
             JSONArray array = new JSONArray(jsonString);            //every time button is pressed create read new data (obvious)
             for (int i = 0; i < array.length(); i++) {
