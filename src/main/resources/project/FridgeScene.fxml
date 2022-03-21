@@ -50,7 +50,7 @@
                                     <Image url="@icons/sensor.png" />
                                  </image>
                               </ImageView>
-                              https://gitlab.groept.be/joerie.aerts/smart-fridge.git                 <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
+                              <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -219,7 +219,7 @@
          </right>
          <bottom>
             <ButtonBar prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" BorderPane.alignment="CENTER_LEFT">
-              <buttons>
+               <buttons>
                   <Button fx:id="fridgeBut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSensorValue" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #C0C0C0#C0C0C0 #C0C0C0#C0C0C0;" text="Fridge" textFill="WHITE">
                      <font>
                         <Font name="Chalkduster" size="12.0" />
@@ -268,7 +268,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-              </buttons>
+               </buttons>
                <padding>
                   <Insets right="80.0" />
                </padding>

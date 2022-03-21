@@ -98,7 +98,7 @@ public class FridgeController extends mysqlConnector implements Initializable {
         }
         public void toInventory(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("InventoryController.fxml");
+                m.changeScene("InventoryScene.fxml");
         }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
