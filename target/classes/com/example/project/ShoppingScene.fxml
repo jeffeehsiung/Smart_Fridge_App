@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ShoppingController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F8E9FE;">
+         <children>
+            <ImageView fx:id="background_recipe" fitHeight="400.0" fitWidth="600.0" opacity="0.15" pickOnBounds="true" preserveRatio="true" x="100.0">
+               <image>
+                  <Image url="@../../../Images/background_Shoping.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutY="310.0" prefHeight="90.0" prefWidth="600.0">
+               <children>
+                  <ImageView fx:id="imageMeal" fitHeight="79.0" fitWidth="85.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/butMeal.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageInv" fitHeight="103.0" fitWidth="83.0" layoutX="259.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/butInv.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageList" fitHeight="79.0" fitWidth="100.0" layoutX="454.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/butList.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparant;">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.28070175647735596" green="0.0667099878191948" blue="0.0667099878191948" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <Button fx:id="buttInv" layoutX="250.0" layoutY="6.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttList" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="34.0" layoutY="14.0" text="Your">
+               <font>
+                  <Font name="Leelawadee UI Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="49.0" prefHeight="17.0" prefWidth="73.0" text="Shopping list" textFill="#000000cb">
+               <font>
+                  <Font name="Segoe UI Light" size="12.0" />
+               </font>
+            </Label>
+            <Line endX="1.0" endY="47.66667938232422" layoutX="410.0" layoutY="77.0" startX="1.0" startY="218.33334350585938" />
+            <TableView fx:id="tblProduct" layoutX="10.0" layoutY="96.0" prefHeight="200.0" prefWidth="580.0" style="-fx-background-color: pink;">
+               <columns>
+                  <TableColumn fx:id="colProd" minWidth="400.0" prefWidth="173.33334350585938" text="Product" />
+                  <TableColumn fx:id="colQty" minWidth="200.0" prefWidth="183.33331298828125" text="Quantity" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
