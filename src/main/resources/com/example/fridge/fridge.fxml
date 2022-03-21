@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fridgeInfo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #ffffff;" stylesheets="@styling.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FridgeController">
    <children>
       <BorderPane layoutY="-5.0" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: #FFFFFF;">
          <top>
@@ -50,7 +50,7 @@
                                     <Image url="@icons/sensor.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
+                              https://gitlab.groept.be/joerie.aerts/smart-fridge.git                 <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
                                  <font>
                                     <Font size="12.0" />
                                  </font>

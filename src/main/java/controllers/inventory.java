@@ -1,6 +1,5 @@
 package controllers;
 
-import com.example.fridge.DataBaseConnection;
 import com.example.fridge.Main;
 import com.example.fridge.grocery;
 import javafx.collections.FXCollections;
@@ -21,7 +20,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 
 public class inventory implements Initializable {

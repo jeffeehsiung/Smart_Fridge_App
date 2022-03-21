@@ -23,7 +23,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("user.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
         stage.setTitle("JJKL");

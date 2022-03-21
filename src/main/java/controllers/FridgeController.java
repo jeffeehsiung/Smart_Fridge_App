@@ -7,12 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class fridgeInfo implements Initializable {
+public class FridgeController extends mysqlConnector implements Initializable {
 
         //pages
         @FXML
@@ -57,32 +59,33 @@ public class fridgeInfo implements Initializable {
         private Label weightVal;
         @FXML
         private Label weightSignal;
-
         @FXML
-        void showSensorValue(ActionEvent event) {
-                setSensorVal();
-                setSensorSignal();
-        }
+        void showSensorValue(ActionEvent event) {setSensorVal();setSensorSignal();}
 
-        public void toInventory(ActionEvent event) throws IOException {
-                Main m = new Main();
-                m.changeScene("inventory.fxml");
-        }
-
-        private mysqlConnector sql = new mysqlConnector();
         private String[] sensorName = {"Light","Temp","Humid","Weight"};
 
-        public double getSensorValue(String sensorName){
-                String response = sql.makeGETRequest("sensorValue",sensorName);
-                Double sensorVal = Double.parseDouble(sql.readSensorValue(response)[0]);
+        public String[] readSensorValue(String jsonString){
+                String[] sensorVal = null;
+                String keyValue = "sensVal";
+                String minorNotes = "sensUnit";
+                JSONArray array = new JSONArray(jsonString);
+                for (int i = 0; i < array.length(); i++)
+                {
+                        JSONObject curObject = array.getJSONObject(i);
+                        sensorVal =new String[]{curObject.getString(keyValue),curObject.getString(minorNotes)};
+                }
                 return sensorVal;
         }
-
+        public double getSensorValue(String sensorName){
+                String response = makeGETRequest("sensorValue",sensorName);
+                Double sensorVal = Double.parseDouble(readSensorValue(response)[0]);
+                return sensorVal;
+        }
         public void setSensorVal() {
                 Label[] labels = {lightVal,tempVal,humVal,weightVal};
                 for (int i = 0; i<labels.length; i++){
-                        String response = sql.makeGETRequest("sensorValue",sensorName[i]);
-                        labels[i].setText(sql.readSensorValue(response)[0]+"\t"+sql.readSensorValue(response)[1]);
+                        String response = makeGETRequest("sensorValue",sensorName[i]);
+                        labels[i].setText(readSensorValue(response)[0]+"\t"+readSensorValue(response)[1]);
                 }
         }
         public void setSensorSignal() {
@@ -93,10 +96,12 @@ public class fridgeInfo implements Initializable {
                 }
                 else{messages[i].setText("\t");}
         }
-
-
+        public void toInventory(ActionEvent event) throws IOException {
+                Main m = new Main();
+                m.changeScene("inventory.fxml");
+        }
         @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+        public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

@@ -50,7 +50,7 @@
                                     <Image url="@icons/sensor.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
+                              https://gitlab.groept.be/joerie.aerts/smart-fridge.git                 <Label fx:id="ldr" layoutX="49.0" layoutY="130.0" text="light" textFill="#8a8383">
                                  <font>
                                     <Font size="12.0" />
                                  </font>

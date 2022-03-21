@@ -14,11 +14,7 @@ public class mysqlConnector {
     protected String serverURL = "https://studev.groept.be/api/a21ib2a01";
     protected String serverName;
     protected  String searchName;
-    protected String userkey = "username";
-    protected String passwordvalue = "password";
-    protected boolean loginSucceed = false;
-    protected boolean userExist = false;
-    protected boolean pwdCorrect = false;
+
 
     public String makeGETRequest(String serverName){
         BufferedReader bufferedReader;
@@ -70,49 +66,6 @@ public class mysqlConnector {
         }
         return "pageCannotBeFound";
 
-    }
-
-    public String[] readSensorValue(String jsonString){
-        String[] sensorVal = null;
-        String keyValue = "sensVal";
-        String minorNotes = "sensUnit";
-
-        try {
-            JSONArray array = new JSONArray(jsonString);
-            for (int i = 0; i < array.length(); i++)
-            {
-                JSONObject curObject = array.getJSONObject(i);
-                sensorVal =new String[]{curObject.getString(keyValue),curObject.getString(minorNotes)};
-            }
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-        return sensorVal;
-    }
-
-
-    public boolean compareUserDB (String username, String password, String serverName){
-        JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(serverName));
-        //iterate and compare to JSONarray
-        try{
-            for (int i = 0; i < dbJSON.length(); i++)
-            {
-                JSONObject curObject = dbJSON.getJSONObject(i);
-                if (username.equals(curObject.getString(userkey))){
-                    userExist = true; //userName incorrect, userExist remains false
-                    if(password.equals(curObject.getString(passwordvalue))){
-                        pwdCorrect = true; //password incorrect, pwdCorrect remains false
-                        loginSucceed = true;
-                    }
-                }
-            }
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-
-        return loginSucceed;
     }
 
     public JSONArray parseIntoJSONarray (String jsonString){
