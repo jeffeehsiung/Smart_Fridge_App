@@ -38,7 +38,6 @@ public class Main extends Application {
 
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        System.out.println(pane.getAccessibleRole());
         this.stage.getScene().setRoot(pane);
     }
 

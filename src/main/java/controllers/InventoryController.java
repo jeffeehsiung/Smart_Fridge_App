@@ -1,23 +1,20 @@
 package controllers;
 
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import project.Main;
-import project.grocery;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.control.CheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import project.Main;
+import project.grocery;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +36,8 @@ public class InventoryController extends mysqlConnector implements Initializable
         private TableColumn<grocery,String> qty;
         @FXML
         private TableColumn<grocery,String> comment;
+        @FXML
+        private TableColumn<grocery,String> toCart;
         @FXML
         private Label searchItem;
         @FXML
@@ -65,7 +64,6 @@ public class InventoryController extends mysqlConnector implements Initializable
 
                         //Populate the ObservableList
                         data.add(new grocery(id,item,category,expiryDate,qty,comment));
-                        System.out.println(data);
                 }
                 // propertyValueFatory corresponds to the new grocery fields
                 // the table column is the one you annotate above
@@ -106,25 +104,33 @@ public class InventoryController extends mysqlConnector implements Initializable
 
         public void updateItem(ActionEvent event){
                 serverName = "addToShoppingList";
+                String urlExtention;
                 String toShoppingListItem = keyword.getText();
                 String toShoppingListItemQty = "1";
                 //get user input for qty
-                if(!(keyword.getText().contains("key"))){
+                if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
                         searchItem.setText("Enter "+ toShoppingListItem+ "qty: ");
-                        keyword.setText("");
+                        keyword.clear();
                         if(!(keyword.getText().isEmpty())){
                                 toShoppingListItemQty = keyword.getText();
                         }
                         searchItem.setText("Search Item");  // Output user input
                 }
-                //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-                //String toShoppingListItemQty = myObj.nextLine();  // Read user input
-
                 //extention url for inserting into shoppingList
-                String urlExtention = serverName + "/" + toShoppingListItem + "/" + toShoppingListItemQty;
-                JSONArray dbJSON = parseIntoJSONarray(makeGETRequest(urlExtention));
+                urlExtention = serverName + "/" + toShoppingListItem + "/" + toShoppingListItemQty;
+                parseIntoJSONarray(makeGETRequest(urlExtention));
 
+                //search checkBox item to put into shopping cart
+                System.out.println("check selected");
+                for(grocery grocery: data){
+                        if(grocery.getToCart().isSelected()){
+                                urlExtention = serverName + "/" + grocery.getItem_col() + "/" + toShoppingListItemQty;
+                                parseIntoJSONarray(makeGETRequest(urlExtention));
+
+                        }
+                }
         }
+
         @FXML
         void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
@@ -158,6 +164,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                 this.expiryDate.setCellValueFactory(new PropertyValueFactory<>("expiryDate_col"));
                 this.qty.setCellValueFactory(new PropertyValueFactory<>("qty_col"));
                 this.comment.setCellValueFactory(new PropertyValueFactory<>("comment_col"));
+                this.toCart.setCellValueFactory(new PropertyValueFactory<>("toCart"));
 
                 inventoryTable.setItems(data);
                 /* initial filter list */

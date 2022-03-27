@@ -1,8 +1,13 @@
 package project;
 
 
+import java.awt.*;
+import javafx.scene.control.CheckBox;
+
 public class grocery {
-    String id_col,item_col,category_col,expiryDate_col,qty_col,comment_col;
+    private String id_col,item_col,category_col,expiryDate_col,qty_col,comment_col;
+    private CheckBox toCart_col;
+
 
     public grocery(String id, String item, String category, String expiryDate, String qty, String comment) {
         this.id_col = id;
@@ -11,6 +16,8 @@ public class grocery {
         this.expiryDate_col = expiryDate;
         this.qty_col = qty;
         this.comment_col = comment;
+        this.toCart_col = new CheckBox();
+
     }
 
     public String getId_col() {
@@ -60,4 +67,8 @@ public class grocery {
     public void setComment_col(String comment_col) {
         this.comment_col = comment_col;
     }
+
+    public CheckBox getToCart() {return toCart_col;}
+
+    public void setToCart(CheckBox toCart_col) {this.toCart_col = toCart_col;}
 }

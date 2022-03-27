@@ -74,7 +74,26 @@ public class RecipeController implements Initializable  {
         System.out.println("inv");
     }
 
-    @FXML void goMenuList(ActionEvent event)throws IOException {
+    @FXML
+    void toFridge(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("FridgeScene.fxml");
+    }
+
+    @FXML
+    void toInventory(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("InventoryScene.fxml");
+    }
+
+    @FXML
+    void toRecipe(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("RecipeScene.fxml");
+    }
+
+    @FXML
+    void toShoppingList(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("ShoppingScene.fxml");
     }

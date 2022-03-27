@@ -14,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.util.*;
 import java.io.IOException;
@@ -29,20 +28,32 @@ public class ShoppingController implements Initializable {
     @FXML private TableView<Product> tblProduct;
 
 
-    @FXML void goMenuInv(ActionEvent event) {
+    @FXML
+    void toFridge(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("FridgeScene");
+    }
 
+    @FXML
+    void toInventory(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("InventoryScene.fxml");
+    }
+
+    @FXML
+    void toRecipe(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("RecipeScene.fxml");
+    }
+
+    @FXML
+    void toShoppingList(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("ShoppingScene.fxml");
     }
 
 
-    public ShoppingController(){
-    }
-
-    @FXML void goMenuMeal(ActionEvent event)throws IOException {
-        System.out.println(getClass());
-        Parent root = FXMLLoader.load(Main.class.getResource("RecipeScene.fxml"));
-        Stage window = (Stage) buttMeal.getScene().getWindow();
-        window.setScene(new Scene(root, 600, 400));
-    }
+    public ShoppingController(){}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -52,7 +63,6 @@ public class ShoppingController implements Initializable {
         ObservableList<Product> OBList = FXCollections.observableArrayList();
         for (Object product:products) {
             OBList.add((Product) product);
-            System.out.println(OBList);
         }
 
         this.colProd.setCellValueFactory(new PropertyValueFactory<>("name"));

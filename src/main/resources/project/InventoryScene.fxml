@@ -24,14 +24,15 @@
         <tabs>
           <Tab id="material" text="material">
                <content>
-                  <TableView fx:id="inventoryTable" cache="true" depthTest="DISABLE" prefHeight="256.0" prefWidth="600.0">
+                  <TableView fx:id="inventoryTable" cache="true" depthTest="DISABLE" prefHeight="237.5" prefWidth="575.0">
                     <columns>
-                      <TableColumn id="id_col" fx:id="id" prefWidth="50.0" text="id" />
-                      <TableColumn id="item_col" fx:id="item" prefWidth="150.0" text="item" />
+                      <TableColumn id="id_col" fx:id="id" prefWidth="35.0" text="id" />
+                      <TableColumn id="item_col" fx:id="item" prefWidth="100.0" text="item" />
                         <TableColumn id="category_col" fx:id="category" prefWidth="100.0" text="category" />
                         <TableColumn id="expiry date_col" fx:id="expiryDate" prefWidth="100.0" text="expiry date" />
                         <TableColumn id="qty_col" fx:id="qty" prefWidth="50.0" text="qty" />
                         <TableColumn id="comment_col" fx:id="comment" prefWidth="150.0" text="comment" />
+                        <TableColumn id="comment_col" fx:id="toCart" prefWidth="40.0" text="toCart" />
                     </columns>
                      <opaqueInsets>
                         <Insets />
@@ -103,7 +104,7 @@
             </Button>
          </buttons>
       </ButtonBar>
-      <Label graphicTextGap="10.0" prefHeight="59.0" prefWidth="219.0" text="Inventory">
+      <Label graphicTextGap="10.0" prefHeight="59.0" prefWidth="219.0" text="Inventory" visible="false">
          <font>
             <Font name="Leelawadee UI Bold" size="41.0" />
          </font>
@@ -129,5 +130,15 @@
             <Font size="11.0" />
          </font>
       </Button>
+      <Label layoutX="34.0" layoutY="5.0" text="Your">
+         <font>
+            <Font name="Leelawadee UI Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="40.0" text="Inventory" textFill="#000000cb">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
