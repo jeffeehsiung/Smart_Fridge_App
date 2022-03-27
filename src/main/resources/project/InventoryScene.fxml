@@ -112,20 +112,17 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Label fx:id="searchItem" layoutX="319.0" layoutY="29.0" text="Search Item" textAlignment="JUSTIFY" textFill="#948a8a">
+      <Label fx:id="searchItem" layoutX="330.0" layoutY="29.0" prefHeight="15.0" prefWidth="67.0" text="Search Item" textFill="#948a8a">
          <font>
             <Font size="12.0" />
          </font>
-         <padding>
-            <Insets right="40.0" />
-         </padding>
       </Label>
-      <TextField fx:id="keyword" layoutX="427.0" layoutY="26.0" prefHeight="21.0" prefWidth="97.0" promptText="keyword..">
+      <TextField fx:id="keyword" layoutX="395.0" layoutY="26.0" prefHeight="21.0" prefWidth="80.0" promptText="keyword..">
          <font>
             <Font size="11.0" />
          </font>
       </TextField>
-      <Button fx:id="addToCart" layoutX="531.0" layoutY="26.0" mnemonicParsing="false" onAction="#updateItem" text="+ to cart" textAlignment="CENTER" textFill="#948a8a">
+      <Button fx:id="addToCart" layoutX="478.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToCart" text="+ to cart" textAlignment="CENTER" textFill="#948a8a">
          <font>
             <Font size="11.0" />
          </font>
@@ -140,5 +137,10 @@
             <Font name="Segoe UI Light" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="addToInventory" layoutX="535.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToInventory" text="+ stock" textAlignment="CENTER" textFill="#948a8a">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

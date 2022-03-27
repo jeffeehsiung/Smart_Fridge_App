@@ -37,8 +37,9 @@
             <Line endX="1.0" endY="47.66667938232422" layoutX="410.0" layoutY="77.0" startX="1.0" startY="218.33334350585938" />
             <TableView fx:id="tblProduct" layoutX="10.0" layoutY="96.0" prefHeight="200.0" prefWidth="580.0" style="-fx-background-color: pink;">
                <columns>
-                  <TableColumn fx:id="colProd" minWidth="400.0" prefWidth="173.33334350585938" text="Product" />
-                  <TableColumn fx:id="colQty" minWidth="200.0" prefWidth="183.33331298828125" text="Quantity" />
+                  <TableColumn fx:id="colProd" maxWidth="-1.0" minWidth="300.0" prefWidth="300.0" text="Product" />
+                  <TableColumn fx:id="colQty" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" text="Quantity" />
+                  <TableColumn fx:id="itemBox" maxWidth="-1.0" minWidth="80.0" text="ItemBox" />
                </columns>
             </TableView>
             <ButtonBar layoutX="98.0" layoutY="309.0" prefHeight="84.0" prefWidth="445.0" style="-fx-background-color: #F8E9FE;" stylesheets="@styling.css">
@@ -103,6 +104,11 @@
                   </Button>
                </buttons>
             </ButtonBar>
+            <Button fx:id="delet" layoutX="525.0" layoutY="66.0" mnemonicParsing="false" onAction="#deletItem" text="- delet" textAlignment="CENTER" textFill="#948a8a">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

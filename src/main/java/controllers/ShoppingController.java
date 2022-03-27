@@ -15,17 +15,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import project.grocery;
+
 import java.util.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ShoppingController implements Initializable {
+public class ShoppingController extends mysqlConnector implements Initializable {
 
     @FXML private Button buttMeal;
     @FXML private TableColumn<Product, String> colProd;
     @FXML private TableColumn<Product, Integer> colQty;
+    @FXML private TableColumn<Product, String> itemBox;
     @FXML private TableView<Product> tblProduct;
+
+    private ObservableList<Product> OBList = FXCollections.observableArrayList();
 
 
     @FXML
@@ -52,6 +57,17 @@ public class ShoppingController implements Initializable {
         m.changeScene("ShoppingScene.fxml");
     }
 
+    public void deletItem(ActionEvent actionEvent){
+        String serverName = "removeFromShoppingList";
+        String urlExtention;
+        System.out.println("check selected");
+        for(Product product: OBList){
+            if(product.getItemBox().isSelected()){
+                urlExtention = serverName + "/" + product.getName();
+                makeGETRequest(urlExtention);
+            }
+        }
+    }
 
     public ShoppingController(){}
 
@@ -60,13 +76,13 @@ public class ShoppingController implements Initializable {
         DBConnection db = new DBConnection();
         String urlAPI = "https://studev.groept.be/api/a21ib2a01/readProducts";
         List<Object> products = db.parseJSONProducts(db.makeGETRequest(urlAPI));
-        ObservableList<Product> OBList = FXCollections.observableArrayList();
         for (Object product:products) {
             OBList.add((Product) product);
         }
 
         this.colProd.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        this.itemBox.setCellValueFactory(new PropertyValueFactory<>("itemBox"));
 
         tblProduct.setItems(OBList);
     }

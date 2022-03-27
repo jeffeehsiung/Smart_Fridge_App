@@ -18,6 +18,8 @@ import project.grocery;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -102,7 +104,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                 inventoryTable.setItems(sortedList);
         }
 
-        public void updateItem(ActionEvent event){
+        public void addToCart(ActionEvent event){
                 serverName = "addToShoppingList";
                 String urlExtention;
                 String toShoppingListItem = keyword.getText();
@@ -125,12 +127,70 @@ public class InventoryController extends mysqlConnector implements Initializable
                 for(grocery grocery: data){
                         if(grocery.getToCart().isSelected()){
                                 urlExtention = serverName + "/" + grocery.getItem_col() + "/" + toShoppingListItemQty;
-                                parseIntoJSONarray(makeGETRequest(urlExtention));
+                                makeGETRequest(urlExtention);
 
                         }
                 }
         }
 
+        public void addToInventory(ActionEvent event){
+                serverName = "addToInventory";
+                String item = "";
+                String catgory = "toBeUpdated";
+                LocalDate date = LocalDate.now().plusDays(10); //default as 10 days
+                Integer qty = 1; //default, unless specified
+                String comment = "";
+                String[] meat = new String[]{"beef","chicken","pork","shrip","fish"};
+                String[] dairy = new String[]{"egg","milk","soy milk","yogurt","cheese","butter","ice cream"};
+                String[] fruit = new String[]{"orange","apple","kiwi","tomato","banana","grape","mango"};
+                //get user input for item
+                if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
+                        item = keyword.getText();
+                        for(String i: meat){
+                                if(item.equals(i)){
+                                        catgory = "meat";
+                                }
+                        }
+                        for(String i: dairy){
+                                if(item.equals(i)){
+                                        catgory = "dairy";
+                                }
+                        }
+                        for(String i: fruit){
+                                if(item.equals(i)){
+                                        catgory = "fruit";
+                                }
+                        }
+                        if(catgory.equals("to be updated")){
+                                searchItem.setText("Enter category: ");
+                                keyword.clear();
+                                if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
+                                        catgory = keyword.getText();
+                                }
+                                if(!catgory.equals("toBeUpdated")){
+                                        searchItem.setText("Enter qty: ");
+                                        keyword.clear();
+                                        if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
+                                                qty = Integer.parseInt(keyword.getText());
+                                                keyword.clear();
+                                        }
+                                }
+                        }
+                        searchItem.setText("wish to set expiry date? y/n");
+                        if(!(keyword.getText().isEmpty())){
+                                switch (keyword.getText()){
+                                        case("y"): searchItem.setText("enter date: YYYY-MM-DD");break;
+                                        case("n"): searchItem.setText("expiry date:"+date);break;
+                                }
+                                keyword.clear();
+                        }
+                        searchItem.setText("Search Item");  // Output user input
+                }
+                //extention url for inserting into shoppingList
+                String urlExtention = serverName + "/" + item + "/" + catgory+ "/" +date+ "/" +qty+ "/" +comment;
+                System.out.println(urlExtention);
+                makeGETRequest(urlExtention);
+        }
         @FXML
         void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
