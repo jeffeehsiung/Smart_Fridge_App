@@ -19,24 +19,24 @@
          <children>
             <ImageView fx:id="background_recipe" fitHeight="400.0" fitWidth="600.0" opacity="0.15" pickOnBounds="true" preserveRatio="true" x="100.0">
                <image>
-                  <Image url="@../../../Images/background_Shoping.jpg" />
+                  <Image url="@background/background_Shoping.jpg" />
                </image>
             </ImageView>
             <AnchorPane layoutY="310.0" prefHeight="90.0" prefWidth="600.0">
                <children>
                   <ImageView fx:id="imageMeal" fitHeight="79.0" fitWidth="85.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butMeal.png" />
+                        <Image url="@icons/butMeal.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="imageInv" fitHeight="103.0" fitWidth="83.0" layoutX="259.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butInv.png" />
+                        <Image url="@icons/butInv.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="imageList" fitHeight="79.0" fitWidth="100.0" layoutX="454.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/butList.png" />
+                        <Image url="@icons/butList.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparant;">
