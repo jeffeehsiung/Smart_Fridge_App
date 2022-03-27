@@ -37,7 +37,7 @@
                         <Image url="@icons/butList.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparant;">
+                  <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparent;">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -55,8 +55,8 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button fx:id="buttInv" layoutX="250.0" layoutY="6.0" mnemonicParsing="false" onAction="#goMenuInv" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
-                  <Button fx:id="buttList" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" onAction="#goMenuList" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttInv" layoutX="250.0" layoutY="6.0" mnemonicParsing="false" onAction="#goMenuInv" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="buttList" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" onAction="#goMenuList" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="22.5" layoutY="95.0" prefHeight="196.0" prefWidth="170.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 10px;">
@@ -71,7 +71,7 @@
                         <Font name="Segoe UI Light" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttD1" mnemonicParsing="false" onAction="#goDish1" prefHeight="196.0" prefWidth="113.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttD1" mnemonicParsing="false" onAction="#goDish1" prefHeight="196.0" prefWidth="113.0" style="-fx-background-color: transparent;" />
                   <Rating fx:id="rateD1" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="4.5" />
                   <ImageView fx:id="imageD1" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,7 +92,7 @@
                         <Font name="Segoe UI Light" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttD2" mnemonicParsing="false" onAction="#goDish2" prefHeight="196.0" prefWidth="170.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttD2" mnemonicParsing="false" onAction="#goDish2" prefHeight="196.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Rating fx:id="rateD2" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="5.0" />
                   <ImageView fx:id="imageD2" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -113,7 +113,7 @@
                         <Font name="Segoe UI Light" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttD3" mnemonicParsing="false" onAction="#goDish3" prefHeight="196.0" prefWidth="170.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttD3" mnemonicParsing="false" onAction="#goDish3" prefHeight="196.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Rating fx:id="rateD3" layoutX="125.0" layoutY="10.0" orientation="VERTICAL" partialRating="true" rating="4.0" />
                   <ImageView fx:id="imageD3" fitHeight="79.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
                      <image>
@@ -132,8 +132,8 @@
                   <Font name="Segoe UI Light" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="buttSlideLeft" layoutY="170.0" mnemonicParsing="false" onAction="#slideLeft" prefHeight="45.0" prefWidth="32.0" style="-fx-background-color: transparant; -fx-background-radius: 15px; -fx-border-color: #000000;" text="&lt;" />
-            <Button fx:id="buttSlideRight" layoutX="570.0" layoutY="170.0" mnemonicParsing="false" onAction="#slideRight" prefHeight="45.0" prefWidth="32.0" style="-fx-background-color: transparant; -fx-background-radius: 15px; -fx-border-color: #000000;" text="&gt;" />
+            <Button fx:id="buttSlideLeft" layoutY="170.0" mnemonicParsing="false" onAction="#slideLeft" prefHeight="45.0" prefWidth="32.0" style="-fx-background-color: transparent; -fx-background-radius: 15px; -fx-border-color: #000000;" text="&lt;" />
+            <Button fx:id="buttSlideRight" layoutX="570.0" layoutY="170.0" mnemonicParsing="false" onAction="#slideRight" prefHeight="45.0" prefWidth="32.0" style="-fx-background-color: transparent; -fx-background-radius: 15px; -fx-border-color: #000000;" text="&gt;" />
          </children>
       </AnchorPane>
    </children>

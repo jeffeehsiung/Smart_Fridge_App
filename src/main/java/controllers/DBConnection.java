@@ -60,9 +60,12 @@ public class DBConnection {
             JSONArray array = new JSONArray(jsonString);            //every time button is pressed create read new data (obvious)
             for (int i = 0; i < array.length(); i++) {
                 JSONObject curObject = array.getJSONObject(i);
-                Product product = new Product(curObject.getString("Product"), curObject.getString("Quantity"));
+                if(!(curObject).isNull("Product"))
+                {
+                    Product product = new Product(curObject.getString("Product"), curObject.getString("Quantity"));
+                    dataListP.add(product);
+                }
 
-                dataListP.add(product);
             }
         }
         catch (JSONException e) {

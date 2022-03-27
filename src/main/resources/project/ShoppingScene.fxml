@@ -39,7 +39,7 @@
                         <Image url="@icons/butList.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparant;">
+                  <Button fx:id="buttMeal" layoutX="51.0" layoutY="7.0" mnemonicParsing="false" onAction="#goMenuMeal" prefHeight="79.0" prefWidth="113.0" style="-fx-background-color: transparent;">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -57,8 +57,8 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button fx:id="buttInv" layoutX="250.0" layoutY="6.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
-                  <Button fx:id="buttList" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: transparant;" />
+                  <Button fx:id="buttInv" layoutX="250.0" layoutY="6.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="buttList" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
             <Label layoutX="34.0" layoutY="14.0" text="Your">
