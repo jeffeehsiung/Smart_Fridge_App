@@ -88,8 +88,9 @@ public class FridgeController extends mysqlConnector implements Initializable {
         }
         public void setSensorSignal() {
                 Label[] messages = {lightSignal,tempSignal,humSignal,weightSignal};
+                int[] alarms = {50, 7,50, 70 };
                 for(int i = 0; i<messages.length; i++)
-                if ( getSensorValue(sensorName[i]) > 200){
+                if ( getSensorValue(sensorName[i]) > alarms[i]){
                         messages[i].setText("WARNING");
                 }
                 else{messages[i].setText("\t");}

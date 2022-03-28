@@ -73,6 +73,7 @@ public class DBConnection {
         }
         return dataListP;
     }
+
     public List<User> parseJSONUsers(String jsonString){
         try {
             JSONArray array = new JSONArray(jsonString);            //every time button is pressed create read new data (obvious)
@@ -87,5 +88,6 @@ public class DBConnection {
         }
         return dataListU;
     }
+
 }
 //not really a 2D arraylist, but an arraylist with arrays in it. Which elements are strings, but the idea is the same
