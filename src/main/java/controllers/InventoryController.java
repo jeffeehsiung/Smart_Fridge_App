@@ -213,9 +213,9 @@ public class InventoryController extends mysqlConnector implements Initializable
         }
 
         @FXML
-        void toFridge(ActionEvent event) {
+        void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("FridgeScene.fxml")
+                m.changeScene("FridgeScene.fxml");
         }
 
         @FXML
