@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.scene.control.CheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,10 @@ import project.grocery;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -135,62 +139,79 @@ public class InventoryController extends mysqlConnector implements Initializable
 
         public void addToInventory(ActionEvent event){
                 serverName = "addToInventory";
-                String item = "";
-                String catgory = "toBeUpdated";
-                LocalDate date = LocalDate.now().plusDays(10); //default as 10 days
-                Integer qty = 1; //default, unless specified
-                String comment = "";
-                String[] meat = new String[]{"beef","chicken","pork","shrip","fish"};
-                String[] dairy = new String[]{"egg","milk","soy milk","yogurt","cheese","butter","ice cream"};
-                String[] fruit = new String[]{"orange","apple","kiwi","tomato","banana","grape","mango"};
-                //get user input for item
-                if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
-                        item = keyword.getText();
-                        for(String i: meat){
-                                if(item.equals(i)){
-                                        catgory = "meat";
+                final String[] newGrocery = {"itemName","category","comment"};
+                final LocalDate[] date = {LocalDate.now().plusDays(10)}; //default as 10 days
+                final Integer[] qty = new Integer[1]; //default, unless specified
+                //action event
+                EventHandler<ActionEvent> dateNamed = new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent dateNamed) {
+                                /*if (!(keyword.getText().isEmpty())){
+                                        date[0] = LocalDate.parse(keyword.getText());
+                                        System.out.println(date);
                                 }
+                                else{ date[0] = LocalDate.now().plusDays(10);;}*/
+                                keyword.clear();
+                                searchItem.setText("Search Item");
+                                String urlExtention = serverName + "/" + newGrocery[0] + "/" + newGrocery[1]+ "/" + date[0] + "/" + qty[0] + "/" +newGrocery[2];
+                                System.out.println(urlExtention);
+                                makeGETRequest(urlExtention);
                         }
-                        for(String i: dairy){
-                                if(item.equals(i)){
-                                        catgory = "dairy";
+                };
+
+                EventHandler<ActionEvent> qtyNamed = new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent qtyNamed) {
+                                if (keyword.getText().isEmpty()){
+                                        qty[0] = 1;
                                 }
+                                else{ qty[0] = Integer.parseInt(keyword.getText());}
+                                searchItem.setText("Enter expiry date: ");
+                                keyword.clear();
+                                keyword.setText("default date: YYYY-MM-DD");
+                                keyword.setOnAction(dateNamed);
                         }
-                        for(String i: fruit){
-                                if(item.equals(i)){
-                                        catgory = "fruit";
+                };
+
+                EventHandler<ActionEvent> commentNamed = new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent commentNamed) {
+                                if (keyword.getText().isEmpty()){
+                                        newGrocery[2]=" none ";
                                 }
+                                else{newGrocery[2] = keyword.getText();}
+                                searchItem.setText("Enter qty: ");
+                                keyword.clear();
+                                keyword.setText(" default qty: one");
+                                keyword.setOnAction(qtyNamed);
+
                         }
-                        if(catgory.equals("to be updated")){
+                };
+                EventHandler<ActionEvent> categoryNamed = new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent categoryNamed) {
+                                newGrocery[1] = keyword.getText();
+                                searchItem.setText("Enter comment: ");
+                                keyword.clear();
+                                keyword.setText(" default comment: none");
+                                keyword.setOnAction(commentNamed);
+                        }
+                };
+                EventHandler<ActionEvent> itemNamed = new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent itemNamed) {
+                                newGrocery[0] = keyword.getText();
                                 searchItem.setText("Enter category: ");
                                 keyword.clear();
-                                if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
-                                        catgory = keyword.getText();
-                                }
-                                if(!catgory.equals("toBeUpdated")){
-                                        searchItem.setText("Enter qty: ");
-                                        keyword.clear();
-                                        if(!(keyword.getText().contains("key")) && !(keyword.getText().isEmpty())){
-                                                qty = Integer.parseInt(keyword.getText());
-                                                keyword.clear();
-                                        }
-                                }
+                                keyword.setText("category");
+                                keyword.setOnAction(categoryNamed);
                         }
-                        searchItem.setText("wish to set expiry date? y/n");
-                        if(!(keyword.getText().isEmpty())){
-                                switch (keyword.getText()){
-                                        case("y"): searchItem.setText("enter date: YYYY-MM-DD");break;
-                                        case("n"): searchItem.setText("expiry date:"+date);break;
-                                }
-                                keyword.clear();
-                        }
-                        searchItem.setText("Search Item");  // Output user input
-                }
-                //extention url for inserting into shoppingList
-                String urlExtention = serverName + "/" + item + "/" + catgory+ "/" +date+ "/" +qty+ "/" +comment;
-                System.out.println(urlExtention);
-                makeGETRequest(urlExtention);
+                };
+
+                //when enter is parsed
+                keyword.setOnAction(itemNamed);
         }
+
         @FXML
         void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();

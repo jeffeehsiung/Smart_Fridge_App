@@ -5,6 +5,7 @@ module com.example.fridge {
     requires java.sql;
     requires java.desktop;
     requires org.controlsfx.controls;
+    requires java.net.http;
 
 
     opens project to javafx.fxml;
