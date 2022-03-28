@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff8e4#fff8e4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InventoryController">
+   <children>
+      <TabPane fx:id="InventoryController" layoutX="-2.0" layoutY="36.0" prefHeight="320.0" prefWidth="600.0" side="BOTTOM" stylesheets="@styling.css" tabMaxHeight="20.0" tabMaxWidth="100.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
+        <tabs>
+          <Tab id="material" text="material">
+               <content>
+                  <TableView fx:id="inventoryTable" cache="true" depthTest="DISABLE" prefHeight="237.5" prefWidth="575.0">
+                    <columns>
+                      <TableColumn id="id_col" fx:id="id" prefWidth="35.0" text="id" />
+                      <TableColumn id="item_col" fx:id="item" prefWidth="100.0" text="item" />
+                        <TableColumn id="category_col" fx:id="category" prefWidth="100.0" text="category" />
+                        <TableColumn id="expiry date_col" fx:id="expiryDate" prefWidth="100.0" text="expiry date" />
+                        <TableColumn id="qty_col" fx:id="qty" prefWidth="50.0" text="qty" />
+                        <TableColumn id="comment_col" fx:id="comment" prefWidth="150.0" text="comment" />
+                        <TableColumn id="comment_col" fx:id="toCart" prefWidth="40.0" text="toCart" />
+                    </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ButtonBar layoutX="94.0" layoutY="315.0" prefHeight="85.0" prefWidth="450.0" style="-fx-background-color: transparent;" stylesheets="@styling.css">
+         <buttons>
+            <Button fx:id="fridgeBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toFridge" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Font" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/butFridge.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="recipeBut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toRecipe" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fx:id="imageMeal" fitHeight="75.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/butMeal.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="inventoryBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toInventory" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="imageInv" fitHeight="103.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/butInv.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="shopListBut" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toShoppingList" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="imageList" fitHeight="79.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/butList.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </buttons>
+      </ButtonBar>
+      <Label graphicTextGap="10.0" prefHeight="59.0" prefWidth="219.0" text="Inventory" visible="false">
+         <font>
+            <Font name="Leelawadee UI Bold" size="41.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Label fx:id="searchItem" layoutX="330.0" layoutY="29.0" prefHeight="15.0" prefWidth="67.0" text="Search Item" textFill="#948a8a">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="keyword" layoutX="395.0" layoutY="26.0" prefHeight="21.0" prefWidth="80.0" promptText="keyword..">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <Button fx:id="addToCart" layoutX="478.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToCart" text="+ to cart" textAlignment="CENTER" textFill="#948a8a">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Label layoutX="34.0" layoutY="5.0" text="Your">
+         <font>
+            <Font name="Leelawadee UI Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="40.0" text="Inventory" textFill="#000000cb">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="addToInventory" layoutX="535.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToInventory" text="+ stock" textAlignment="CENTER" textFill="#948a8a">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
