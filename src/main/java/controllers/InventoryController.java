@@ -191,7 +191,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                                 keyword.setStyle("-fx-text-fill: grey");
                                 keyword.setText("default: 10 days. form YYYY-MM-DD");
                                 //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
-                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-2);
                                 searchItem.setVisible(false);
                                 searchItem.setText("Enter expiry date: ");
                                 searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 7);
@@ -205,12 +205,13 @@ public class InventoryController extends mysqlConnector implements Initializable
                 EventHandler<ActionEvent> commentNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent commentNamed) {
+                                System.out.println(keyword.getText().getClass());
                                 if(keyword.getText().getClass().equals( "".getClass())){
-                                        newGrocery[2] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+                                        newGrocery[2] = keyword.getText().toLowerCase().trim().replaceAll("\\s","+");
 
                                 }
-                                else if (keyword.getText().isEmpty()){
-                                        newGrocery[2]="none";
+                                else if (keyword.getText().length()==0){
+                                        newGrocery[2]="null";
                                 }
                                 else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
@@ -218,7 +219,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                                 keyword.setStyle("-fx-text-fill: grey");
                                 keyword.setText(" default: 1. hit enter");
                                 //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
-                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-2);
                                 searchItem.setVisible(false);
                                 searchItem.setText("Enter qty: ");
                                 searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
@@ -232,15 +233,17 @@ public class InventoryController extends mysqlConnector implements Initializable
                 EventHandler<ActionEvent> categoryNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent categoryNamed) {
-                                if(keyword.getText().getClass().equals("".getClass())){
-                                        newGrocery[1] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+                                if(keyword.getText().getClass().equals("".getClass()) && (keyword.getText().length()!=0)){
+                                        newGrocery[1] = keyword.getText().toLowerCase().trim().replaceAll("\\s","+");
+                                }else if (keyword.getText().length()==0){
+                                        newGrocery[1]=("to be named").trim().replaceAll("\\s","+");
                                 }else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
                                 keyword.setVisible(false);
                                 keyword.setStyle("-fx-text-fill: grey");
                                 keyword.setText(" default: none. hit enter");
                                 //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
-                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-2);
                                 searchItem.setVisible(false);
                                 searchItem.setText("Enter comment: ");
                                 searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
@@ -254,14 +257,14 @@ public class InventoryController extends mysqlConnector implements Initializable
                         @Override
                         public void handle(ActionEvent itemNamed) {
                                 if(keyword.getText().getClass().equals("".getClass())){
-                                        newGrocery[0] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+                                        newGrocery[0] = keyword.getText().toLowerCase().trim().replaceAll("\\s","+");
                                 }else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
                                 keyword.setVisible(false);
                                 keyword.setStyle("-fx-text-fill: grey");
                                 keyword.setText("enter and hit enter");
                                 //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
-                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-2);
                                 searchItem.setVisible(false);
                                 searchItem.setText("Enter category: ");
                                 searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
