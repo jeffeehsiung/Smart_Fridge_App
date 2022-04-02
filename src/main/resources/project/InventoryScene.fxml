@@ -112,12 +112,12 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Label fx:id="searchItem" layoutX="330.0" layoutY="29.0" prefHeight="15.0" prefWidth="67.0" text="Search Item" textFill="#948a8a">
+      <Label fx:id="searchItem" layoutX="330.0" layoutY="29.0" text="Search Item" textFill="#948a8a">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="keyword" layoutX="395.0" layoutY="26.0" prefHeight="21.0" prefWidth="80.0" promptText="keyword..">
+      <TextField fx:id="keyword" layoutX="395.0" layoutY="26.0" promptText="type and hit enter">
          <font>
             <Font size="11.0" />
          </font>

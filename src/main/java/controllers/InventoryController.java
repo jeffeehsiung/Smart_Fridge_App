@@ -12,11 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import project.Main;
 import project.grocery;
 
+import javax.swing.text.DateFormatter;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -48,6 +51,9 @@ public class InventoryController extends mysqlConnector implements Initializable
         private Label searchItem;
         @FXML
         private TextField keyword;
+        @FXML
+        private Button addToCart;
+
 
 
         private ObservableList<grocery> data = FXCollections.observableArrayList();
@@ -141,18 +147,29 @@ public class InventoryController extends mysqlConnector implements Initializable
                 serverName = "addToInventory";
                 final String[] newGrocery = {"itemName","category","comment"};
                 final LocalDate[] date = {LocalDate.now().plusDays(10)}; //default as 10 days
-                final Integer[] qty = new Integer[1]; //default, unless specified
+                final Integer[] qty = {1}; //default, unless specified
+
+                Paint color = searchItem.getTextFill();
+                Double position = keyword.getLayoutX();
                 //action event
                 EventHandler<ActionEvent> dateNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent dateNamed) {
-                                /*if (!(keyword.getText().isEmpty())){
-                                        date[0] = LocalDate.parse(keyword.getText());
-                                        System.out.println(date);
+                                if((keyword.getText().trim().length()!=0) && !(keyword.getText().contains("-"))){
+                                        searchItem.setText("Re-enter"); keyword.clear(); return;
                                 }
-                                else{ date[0] = LocalDate.now().plusDays(10);;}*/
+                                else if ((keyword.getText().length()==0)||(keyword.getText().contains("YYYY"))){
+                                        date[0] = LocalDate.now().plusDays(10);
+                                }
+                                else{ date[0] = LocalDate.parse(keyword.getText().trim().replaceAll("\\s",""));}
                                 keyword.clear();
+                                keyword.setLayoutX(position);
+                                searchItem.setVisible(false);
                                 searchItem.setText("Search Item");
+                                searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
+                                searchItem.setTextFill(color);
+                                searchItem.setVisible(true);
+                                keyword.setVisible(true);
                                 String urlExtention = serverName + "/" + newGrocery[0] + "/" + newGrocery[1]+ "/" + date[0] + "/" + qty[0] + "/" +newGrocery[2];
                                 System.out.println(urlExtention);
                                 makeGETRequest(urlExtention);
@@ -162,49 +179,96 @@ public class InventoryController extends mysqlConnector implements Initializable
                 EventHandler<ActionEvent> qtyNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent qtyNamed) {
-                                if (keyword.getText().isEmpty()){
+                                if(keyword.getText().getClass().equals(qty[0].getClass())){
+                                        searchItem.setText("Re-enter"); keyword.clear(); return;
+                                }
+                                else if (keyword.getText().isEmpty()){
                                         qty[0] = 1;
                                 }
-                                else{ qty[0] = Integer.parseInt(keyword.getText());}
-                                searchItem.setText("Enter expiry date: ");
+                                else{ qty[0] = Integer.parseInt(keyword.getText().trim());}
                                 keyword.clear();
-                                keyword.setText("default date: YYYY-MM-DD");
-                                keyword.setOnAction(dateNamed);
+                                keyword.setVisible(false);
+                                keyword.setStyle("-fx-text-fill: grey");
+                                keyword.setText("default: 10 days. form YYYY-MM-DD");
+                                //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                searchItem.setVisible(false);
+                                searchItem.setText("Enter expiry date: ");
+                                searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 7);
+                                searchItem.setTextFill(Color.CORAL);
+                                searchItem.setVisible(true);
+                                keyword.setVisible(true);
+                                keyword.setOnAction(dateNamed);//enter hit
                         }
                 };
 
                 EventHandler<ActionEvent> commentNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent commentNamed) {
-                                if (keyword.getText().isEmpty()){
-                                        newGrocery[2]=" none ";
+                                if(keyword.getText().getClass().equals( "".getClass())){
+                                        newGrocery[2] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+
                                 }
-                                else{newGrocery[2] = keyword.getText();}
-                                searchItem.setText("Enter qty: ");
+                                else if (keyword.getText().isEmpty()){
+                                        newGrocery[2]="none";
+                                }
+                                else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
-                                keyword.setText(" default qty: one");
-                                keyword.setOnAction(qtyNamed);
+                                keyword.setVisible(false);
+                                keyword.setStyle("-fx-text-fill: grey");
+                                keyword.setText(" default: 1. hit enter");
+                                //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                searchItem.setVisible(false);
+                                searchItem.setText("Enter qty: ");
+                                searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
+                                searchItem.setTextFill(Color.CORAL);
+                                searchItem.setVisible(true);
+                                keyword.setVisible(true);
+                                keyword.setOnAction(qtyNamed); //enter hit
 
                         }
                 };
                 EventHandler<ActionEvent> categoryNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent categoryNamed) {
-                                newGrocery[1] = keyword.getText();
-                                searchItem.setText("Enter comment: ");
+                                if(keyword.getText().getClass().equals("".getClass())){
+                                        newGrocery[1] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+                                }else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
-                                keyword.setText(" default comment: none");
-                                keyword.setOnAction(commentNamed);
+                                keyword.setVisible(false);
+                                keyword.setStyle("-fx-text-fill: grey");
+                                keyword.setText(" default: none. hit enter");
+                                //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                searchItem.setVisible(false);
+                                searchItem.setText("Enter comment: ");
+                                searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
+                                searchItem.setTextFill(Color.CORAL);
+                                searchItem.setVisible(true);
+                                keyword.setVisible(true);
+                                keyword.setOnAction(commentNamed); // enter hit
                         }
                 };
                 EventHandler<ActionEvent> itemNamed = new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent itemNamed) {
-                                newGrocery[0] = keyword.getText();
-                                searchItem.setText("Enter category: ");
+                                if(keyword.getText().getClass().equals("".getClass())){
+                                        newGrocery[0] = keyword.getText().toLowerCase().trim().replaceAll("\\s","%20");
+                                }else{searchItem.setText("Re-enter"); keyword.clear(); return;}
                                 keyword.clear();
-                                keyword.setText("category");
-                                keyword.setOnAction(categoryNamed);
+                                keyword.setVisible(false);
+                                keyword.setStyle("-fx-text-fill: grey");
+                                keyword.setText("enter and hit enter");
+                                //keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth()-keyword.getText().length());
+                                keyword.setLayoutX(addToCart.getLayoutX()-keyword.getWidth());
+                                searchItem.setVisible(false);
+                                searchItem.setText("Enter category: ");
+                                searchItem.setLayoutX(keyword.getLayoutX()- searchItem.getText().length() - searchItem.getWidth() - 5);
+                                searchItem.setTextFill(Color.CORAL);
+                                searchItem.setVisible(true);
+                                keyword.setVisible(true);
+                                keyword.setOnAction(categoryNamed); //enter hit
                         }
                 };
 
