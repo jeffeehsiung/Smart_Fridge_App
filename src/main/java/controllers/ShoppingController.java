@@ -31,7 +31,7 @@ public class ShoppingController extends mysqlConnector implements Initializable 
     @FXML
     void toFridge(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("FridgeScene");
+        m.changeScene("FridgeScene.fxml");
     }
 
     @FXML
