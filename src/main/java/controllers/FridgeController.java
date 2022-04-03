@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class FridgeController extends mysqlConnector implements Initializable {
