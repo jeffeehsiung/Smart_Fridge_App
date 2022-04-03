@@ -4,6 +4,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -31,8 +32,8 @@
                         <TableColumn id="category_col" fx:id="category" prefWidth="100.0" text="category" />
                         <TableColumn id="expiry date_col" fx:id="expiryDate" prefWidth="100.0" text="expiry date" />
                         <TableColumn id="qty_col" fx:id="qty" prefWidth="50.0" text="qty" />
-                        <TableColumn id="comment_col" fx:id="comment" prefWidth="150.0" text="comment" />
-                        <TableColumn id="comment_col" fx:id="toCart" prefWidth="40.0" text="toCart" />
+                        <TableColumn id="comment_col" fx:id="comment" prefWidth="142.0" text="comment" />
+                        <TableColumn id="comment_col" fx:id="select" prefWidth="48.0" text="select" />
                     </columns>
                      <opaqueInsets>
                         <Insets />
@@ -122,7 +123,7 @@
             <Font size="11.0" />
          </font>
       </TextField>
-      <Button fx:id="addToCart" layoutX="478.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToCart" text="+ to cart" textAlignment="CENTER" textFill="#948a8a">
+      <Button fx:id="addToCart" layoutX="478.0" layoutY="26.0" mnemonicParsing="false" onAction="#addToCart" text="+ to cart" textAlignment="CENTER" textFill="#948a8a" visible="false">
          <font>
             <Font size="11.0" />
          </font>
@@ -142,5 +143,6 @@
             <Font size="11.0" />
          </font>
       </Button>
+      <ComboBox fx:id="comboSelect" layoutX="477.0" layoutY="23.0" maxHeight="26.0" maxWidth="54.0" prefHeight="26.0" prefWidth="54.0" promptText="+" style="-fx-text-fill: #948a8a;" stylesheets="@styling.css" />
    </children>
 </AnchorPane>

@@ -1,12 +1,10 @@
 package controllers;
 
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
-import javafx.scene.control.CheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,14 +17,9 @@ import org.json.JSONObject;
 import project.Main;
 import project.grocery;
 
-import javax.swing.text.DateFormatter;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -46,13 +39,15 @@ public class InventoryController extends mysqlConnector implements Initializable
         @FXML
         private TableColumn<grocery,String> comment;
         @FXML
-        private TableColumn<grocery,String> toCart;
+        private TableColumn<grocery,String> select;
         @FXML
         private Label searchItem;
         @FXML
         private TextField keyword;
         @FXML
         private Button addToCart;
+        @FXML
+        private ComboBox<String> comboSelect;
 
 
 
@@ -114,7 +109,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                 inventoryTable.setItems(sortedList);
         }
 
-        public void addToCart(ActionEvent event){
+        public void addToCart(){
                 serverName = "addToShoppingList";
                 String urlExtention;
                 String toShoppingListItem = keyword.getText();
@@ -135,7 +130,7 @@ public class InventoryController extends mysqlConnector implements Initializable
                 //search checkBox item to put into shopping cart
                 System.out.println("check selected");
                 for(grocery grocery: data){
-                        if(grocery.getToCart().isSelected()){
+                        if(grocery.getCheckBox().isSelected()){
                                 urlExtention = serverName + "/" + grocery.getItem_col() + "/" + toShoppingListItemQty;
                                 makeGETRequest(urlExtention);
 
@@ -279,6 +274,19 @@ public class InventoryController extends mysqlConnector implements Initializable
                 keyword.setOnAction(itemNamed);
         }
 
+        public void deleteItem(){
+                String serverName = "removeFromInventory";
+                String urlExtention;
+                System.out.println("check selected");
+                for(grocery grocery: data){
+                        if(grocery.getCheckBox().isSelected()){
+                                urlExtention = serverName + "/" + grocery.getId_col();
+                                makeGETRequest(urlExtention);
+                                System.out.println("delete url: " + urlExtention);
+                        }
+                }
+        }
+
         @FXML
         void toFridge(ActionEvent event) throws IOException {
                 Main m = new Main();
@@ -306,13 +314,27 @@ public class InventoryController extends mysqlConnector implements Initializable
         }
 
         public void initialize(URL url, ResourceBundle resourceBundle) {
+                //comboSelect = new ComboBox<>();
+                comboSelect.setStyle("-fx-text-fill: #948a8a");
+                comboSelect.getItems().addAll("+ cart", "- delete");
+                comboSelect.setPromptText("+");
+                comboSelect.setOnAction(e -> {
+                        String s = comboSelect.getValue();
+                        if(s.contains("cart")){
+                                addToCart();
+                        }
+                        else if (s.contains("delete")){
+                                deleteItem();
+                        }
+                });
+
                 this.id.setCellValueFactory(new PropertyValueFactory<>("id_col"));
                 this.item.setCellValueFactory(new PropertyValueFactory<>("item_col"));
                 this.category.setCellValueFactory(new PropertyValueFactory<>("category_col"));
                 this.expiryDate.setCellValueFactory(new PropertyValueFactory<>("expiryDate_col"));
                 this.qty.setCellValueFactory(new PropertyValueFactory<>("qty_col"));
                 this.comment.setCellValueFactory(new PropertyValueFactory<>("comment_col"));
-                this.toCart.setCellValueFactory(new PropertyValueFactory<>("toCart"));
+                this.select.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
 
                 inventoryTable.setItems(data);
                 /* initial filter list */
