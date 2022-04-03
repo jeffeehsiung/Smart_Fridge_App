@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.scene.paint.Color;
 import project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class FridgeController extends mysqlConnector implements Initializable {
@@ -35,6 +38,14 @@ public class FridgeController extends mysqlConnector implements Initializable {
         private Label humSignal;
         @FXML
         private Label humVal;
+        @FXML
+        private Label humMax;
+        @FXML
+        private Label humMaxDate;
+        @FXML
+        private Label humMin;
+        @FXML
+        private Label humMinDate;
 
         //ldr
         @FXML
@@ -51,6 +62,14 @@ public class FridgeController extends mysqlConnector implements Initializable {
         private Label tempSignal;
         @FXML
         private Label tempVal;
+        @FXML
+        private Label tempMax;
+        @FXML
+        private Label tempMaxDate;
+        @FXML
+        private Label tempMin;
+        @FXML
+        private Label tempMinDate;
 
         //weight
         @FXML
@@ -60,43 +79,131 @@ public class FridgeController extends mysqlConnector implements Initializable {
         @FXML
         private Label weightSignal;
 
-        private String[] sensorName = {"Light","Temp","Humid","Weight"};
-
-        public String[] readSensorValue(String jsonString){
-                String[] sensorVal = null;
-                String keyValue = "sensVal";
-                String minorNotes = "sensUnit";
-                JSONArray array = new JSONArray(jsonString);
-                for (int i = 0; i < array.length(); i++)
-                {
-                        JSONObject curObject = array.getJSONObject(i);
-                        sensorVal =new String[]{String.valueOf(Math.round(curObject.getDouble(keyValue))),curObject.getString(minorNotes)};
-                }
-                return sensorVal;
+        public JSONArray readResponseArray(){
+                String response = makeGETRequest("sensorValue");
+                JSONArray ResponseArray = parseIntoJSONarray(response);
+                return ResponseArray;
         }
-        public double getSensorValue(String sensorName){
-                String response = makeGETRequest("readSensorValue",sensorName);
-                Double sensorVal = Double.parseDouble(readSensorValue(response)[0]);
-                return sensorVal;
-        }
-        public void setSensorVal() {
-                Label[] labels = {lightVal,tempVal,humVal,weightVal};
-                for (int i = 0; i<labels.length; i++){
-                        String response = makeGETRequest("readSensorValue",sensorName[i]);
-                        labels[i].setText(readSensorValue(response)[0]+" "+readSensorValue(response)[1]);
-                }
-        }
-        public void setSensorSignal() {
+        public void readSetAllSensorInfo(JSONArray ResponseArray){
+                String[] sensQty = {"Light","Temp","Humid","Weight"};
+                Label[] sensID = {ldr,temp,hum,weight};
+                Label[] values = {lightVal,tempVal,humVal,weightVal};
                 Label[] messages = {lightSignal,tempSignal,humSignal,weightSignal};
-                int[] alarms = {50, 7,50, 70 };
-                for(int i = 0; i<messages.length; i++)
-                if ( getSensorValue(sensorName[i]) > alarms[i]){
-                        messages[i].setText("WARNING");
+                Label[] maxLabel = {tempMax,humMax};
+                Label[] minLabel = {tempMin,humMin};
+                Label[] maxDateLabel = {tempMaxDate,humMaxDate};
+                Label[] minDateLabel= {tempMinDate,humMinDate};
+
+                String[] sensorVal = null;
+                String sensName = "sensQty";
+                String sensVal = "sensVal";
+                String sensUnit = "sensUnit";
+                String notes = "notes";
+                String max = "max";
+                String maxDate = "maxDate";
+                String min = "min";
+                String minDate = "minDate";
+
+                for (int i = 0; i < ResponseArray.length(); i++)
+                {
+                        JSONObject curObject = ResponseArray.getJSONObject(i);
+                        sensID[i].setText(curObject.getString(sensName));
+                        sensorVal = new String[]{String.valueOf(Math.round(curObject.getDouble(sensVal))),curObject.getString(sensUnit)};
+                        values[i].setText(sensorVal[0]+" "+sensorVal[1]);
+                        if(curObject.isNull(notes))
+                        {
+                                messages[i].setVisible(false);
+                        }
+                        else{
+                                messages[i].setText(curObject.getString(notes));
+                                double posX = messages[i].getLayoutX();
+                                double originalWidth = messages[i].getWidth();
+                                messages[i].setLayoutX(posX-(messages[i].getText().length()-originalWidth));
+                                messages[i].setPrefWidth(messages[i].getText().length());
+                                messages[i].setTextFill(Color.HOTPINK);
+                                messages[i].setVisible(true);
+                        }
+                        if(0 < i && i < 3){
+                                if(!(curObject.isNull(max))){
+                                        System.out.println("max not null");
+                                        maxLabel[i-1].setText("max:"+ curObject.getString(max));
+                                        maxDateLabel[i-1].setText(curObject.getString(maxDate));
+                                        maxLabel[i-1].setTextFill(Color.GOLD);
+                                        maxDateLabel[i-1].setTextFill(Color.GOLD);
+                                        maxLabel[i-1].setVisible(true);
+                                        maxDateLabel[i-1].setVisible(true);                                }
+                                else {System.out.println("max null");maxLabel[i - 1].setText(curObject.getString(sensVal));maxDateLabel[i-1].setText(LocalDate.now().toString());maxLabel[i-1].setVisible(false);maxDateLabel[i-1].setVisible(false);}
+                                if(!(curObject.isNull(min))){
+                                        System.out.println("min not null");
+                                        minLabel[i-1].setText("min:"+ curObject.getString(min));
+                                        minDateLabel[i-1].setText(curObject.getString(minDate));
+                                        minLabel[i-1].setTextFill(Color.GOLD);
+                                        minDateLabel[i-1].setTextFill(Color.GOLD);
+                                        minLabel[i-1].setVisible(true);
+                                        minDateLabel[i-1].setVisible(true);
+                                }
+                                else {System.out.println("min null");minLabel[i - 1].setText(curObject.getString(sensVal));minDateLabel[i-1].setText(LocalDate.now().toString());minLabel[i-1].setVisible(false);minDateLabel[i-1].setVisible(false);}
+                        }
                 }
-                else{messages[i].setText("\t");}
+        }
+
+        public void registerMinMax(JSONArray ResponseArray){
+                String serverName = "updateMinMax";
+                String sensName = "sensQty";
+                String sensVal = "sensVal";
+                String max = "max";
+                String maxDate = "maxDate";
+                String min = "min";
+                String minDate = "minDate";
+
+                double maxVal = 0;
+                double minVal = 0;
+                LocalDate maxDateVal = LocalDate.now();
+                LocalDate minDateVal = LocalDate.now();
+
+                for (int i = 0; i < ResponseArray.length(); i++){
+                        JSONObject curObject = ResponseArray.getJSONObject(i);
+                        if(curObject.isNull(max)){
+                                maxVal = Math.round(curObject.getDouble(sensVal));
+                                maxDateVal = LocalDate.now();
+                        }
+                        else if(!curObject.isNull(max)){
+                                if(curObject.getDouble(max) < curObject.getDouble(sensVal)){
+                                        maxVal = Math.round(curObject.getDouble(sensVal));
+                                        maxDateVal = LocalDate.now();
+
+                                }
+                                else if(curObject.getDouble(max) >= curObject.getDouble(sensVal)){
+                                        maxVal = curObject.getDouble(max);
+                                        maxDateVal = LocalDate.parse(curObject.getString(maxDate));
+                                }
+                        }
+                        if(curObject.isNull(min)){
+                                minVal = Math.round(curObject.getDouble(sensVal));
+                                minDateVal = LocalDate.now();
+                        }
+                        else if(!curObject.isNull(min)){
+                                if(curObject.getDouble(min) > curObject.getDouble(sensVal)){
+                                        minVal = Math.round(curObject.getDouble(sensVal));
+                                        minDateVal = LocalDate.now();
+                                }
+                                else if(curObject.getDouble(min) <= curObject.getDouble(sensVal)){
+                                        minVal = curObject.getDouble(min);
+                                        minDateVal = LocalDate.parse(curObject.getString(minDate));
+                                }
+                        }
+                        String url = serverName + "/" + maxVal + "/" + minVal+ "/" + maxDateVal + "/" + minDateVal + "/" +curObject.getString(sensName);
+                        System.out.println(url);
+                        makeGETRequest(url);
+                }
         }
         @FXML
-        void showSensorValue(ActionEvent event) {setSensorVal();setSensorSignal();}
+        void showSensorValue(ActionEvent event) {
+                JSONArray responseArray = readResponseArray();
+                readSetAllSensorInfo(responseArray);
+                registerMinMax(responseArray);
+
+        }
 
         @FXML
         void toInventory(ActionEvent event) throws IOException {
