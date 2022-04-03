@@ -27,13 +27,6 @@ public class ShoppingController extends mysqlConnector implements Initializable 
 
     private ObservableList<Product> OBList = FXCollections.observableArrayList();
 
-    public void autoCheckOut(){
-        OBList.forEach((product -> {
-            if(product.getItemBox().isSelected()){
-                goToStoreAndShop();
-            };
-        }));
-    }
 
     @FXML
     void toFridge(ActionEvent event) throws IOException {
