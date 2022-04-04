@@ -74,19 +74,19 @@ public class LoginController extends mysqlConnector implements Initializable {
 
     private void checkLogin() throws IOException {
         Main m = new Main();
-        compareUserDB(txtUsername.getText(),txtPassword.getText(),userDBserver);
+        compareUserDB(txtUsername.getText(),txtPassword.getText(),userDBserver); //user exist, pwd correct
         if(loginSucceed){
             lblWrongLogin.setText("Login successful");
             m.changeScene("FridgeScene.fxml");
         }
-        else if(txtUsername.getText().isEmpty() && txtPassword.getText().isEmpty()) {
+        else if(txtUsername.getText().isEmpty() && txtPassword.getText().isEmpty()) { //no input
             lblWrongLogin.setText("Please enter your data.");
         }
-        else if(userExist && !pwdCorrect){
+        else if(userExist && !pwdCorrect){ //user exist, password incorrect
             lblWrongLogin.setText("Incorrect password");
         }
         else{
-            lblWrongLogin.setText("No user found");
+            lblWrongLogin.setText("No user found");//no user data in database
         }
     }
 }

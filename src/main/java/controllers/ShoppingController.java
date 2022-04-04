@@ -27,7 +27,6 @@ public class ShoppingController extends mysqlConnector implements Initializable 
 
     private ObservableList<Product> OBList = FXCollections.observableArrayList();
 
-
     @FXML
     void toFridge(ActionEvent event) throws IOException {
         Main m = new Main();
